@@ -1,0 +1,47 @@
+{
+  "description": "Starterpack: hook impeccable (QC design otomatis) + rem keselamatan. Tambah izin spesifik-proyek (ssh alias, docker, dll.) di .claude/settings.local.json — berkas itu per-mesin & gitignored.",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PROJECT_DIR}/.claude/skills/impeccable/scripts/hook.mjs\"",
+            "timeout": 5,
+            "statusMessage": "Checking UI changes"
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(wc:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git branch:*)"
+    ],
+    "deny": [
+      "Bash(rm -rf /:*)",
+      "Bash(rm -rf ~:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(git clean -fdx:*)",
+      "Bash(prisma migrate reset:*)",
+      "Bash(prisma db push --accept-data-loss:*)",
+      "Bash(psql:* DROP DATABASE:*)",
+      "Bash(psql:* TRUNCATE:*)",
+      "Bash(docker volume rm:*)",
+      "Bash(docker system prune -a:*)"
+    ]
+  }
+}

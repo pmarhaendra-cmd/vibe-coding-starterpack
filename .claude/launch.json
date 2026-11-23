@@ -1,0 +1,12 @@
+{
+  "_comment": "Dev server untuk Browser pane Claude Code (preview_start). Sesuaikan name/executable/args/port dgn stack proyek, lalu HAPUS baris _comment ini. Tanpa berkas ini, preview & verifikasi visual tak bisa dipakai.",
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 3000
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+# .gitignore REPO TEMPLATE — sengaja tipis supaya catatan template ikut terunggah.
+# Aturan untuk proyek turunanmu ada di .gitignore.proyek; `sh scripts/mulai.sh` memasangnya.
+.DS_Store
+node_modules/
+.env
+.env.*
+!.env.example
+access/secrets/
+.claude/settings.local.json

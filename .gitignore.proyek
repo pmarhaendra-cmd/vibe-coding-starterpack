@@ -1,0 +1,79 @@
+# ============================================================
+# KEBIJAKAN STARTERPACK: catatan .md = LOKAL, DI LUAR GIT.
+# Catatan kerja (CLAUDE/BACKLOG/DECISIONS/CHANGELOG/profil/
+# FEATURE-SCOPE/features/docs/_archive/.roo) = instruksi kerja
+# user+AI, bukan artefak produk. Repo tetap bersih & aman dibagikan.
+# Auto-load CLAUDE.md tetap jalan dari disk.
+#
+# ⚠️ KONSEKUENSI YANG WAJIB DIURUS (jangan diabaikan):
+#   1. BACKUP catatan = tanggung jawab manual (Time Machine/sejenis).
+#      Git BUKAN backup-mu lagi. Laptop hilang = konteks hilang.
+#   2. SERAH-TERIMA: clone repo TIDAK membawa konteks — catatan harus
+#      disalin manual. Prosedurnya di HANDOVER.md §7.
+#
+# 🔓 PENGECUALIAN — dokumen yang DITEGAKKAN skrip di Git wajib IKUT Git.
+#    Contoh: DESIGN.md ditegakkan scripts/design-lint.mjs + baseline JSON.
+#    Penegak di git tapi aturannya cuma di laptop = pincang.
+#    Cara: hapus barisnya dari daftar di bawah + tulis alasannya di sini.
+# ============================================================
+
+# TETAP IKUT GIT (sengaja, jangan ditambahkan ke daftar bawah):
+#   HANDOVER.md        — tripwire: memberi tahu orang yang meng-clone bahwa
+#                        konteksnya TIDAK ada di repo & cara memintanya.
+#   prototype/         — mockup = "kontrak visual" yang mengunci Mode B.
+#   access/MANIFEST.md — indeks kredensial TANPA nilai.
+#   .claude/skills/    — amunisi kerja, harus ikut saat repo dipakai di mesin lain.
+
+# --- Catatan kerja (lokal saja) ---
+/CLAUDE.md
+/START-HERE.md
+/BACKLOG.md
+/DECISIONS.md
+/CHANGELOG.md
+/CLIENT-PROFILE.md
+/PROBLEM-GOAL.md
+/FEATURE-SCOPE.md
+/features/
+/docs/
+/_archive/
+/context/
+# Config + rules LLM non-Claude (lintas-LLM) — lokal, sejalan dgn di atas.
+/.roo/
+
+# OS & editor
+.DS_Store
+
+# Dependencies & build
+node_modules/
+dist/
+.next/
+
+# RAHASIA — jangan pernah di-commit (indeksnya tanpa nilai: access/MANIFEST.md)
+.env
+.env.*
+!.env.example
+access/secrets/
+
+# Per-mesin (bukan bagian proyek)
+.claude/settings.local.json
+
+# impeccable-ignore-start
+# Output ephemeral skill impeccable (screenshot, state live-mode, cache).
+# Artefak bersama TETAP di-commit: .impeccable/config.json, live/config.json,
+# design.json, critique/*.md.
+.impeccable/config.local.json
+.impeccable/hook.cache.json
+.impeccable/hook.pending.json
+.impeccable/*.png
+.impeccable/live/server.json
+.impeccable/live/sessions/
+.impeccable/live/previews/
+.impeccable/live/annotations/
+.impeccable/live/cache/
+.impeccable/live/manual-edit-apply-transaction.json
+.impeccable/live/manual-edit-events.jsonl
+.impeccable/live/manual-edit-evidence/
+.impeccable/live/pending-manual-edits.json
+.impeccable/live/deferred-svelte-component-accepts.json
+.impeccable/live/*.png
+# impeccable-ignore-end
